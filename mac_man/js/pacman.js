@@ -8,7 +8,7 @@
  * do proper ghost mechanics (blinky/wimpy etc)
  */
 // milk
-var NONE        = 4, //comment to test
+var NONE        = 4, //comment to test.  trying to push to master
     UP          = 3,
     LEFT        = 2,
     DOWN        = 1,
@@ -160,7 +160,7 @@ Pacman.Ghost = function (game, map, colour) {
         var high = game.getTick() % 10 > 5 ? 3  : -3;
         var low  = game.getTick() % 10 > 5 ? -3 : 3;
 
-        ctx.fillStyle = getColour();
+        ctx.fillStyle = getColour(); //color of the ghosts
         ctx.beginPath();
 
         ctx.moveTo(left, base);
@@ -322,7 +322,7 @@ Pacman.User = function (game, map) {
     };
     
     function resetPosition() {
-        position = {"x": 90, "y": 120};
+        position = {"x": 90, "y": 120}; //sets initial position of pacman
         direction = LEFT;
         due = LEFT;
     };
@@ -418,17 +418,18 @@ Pacman.User = function (game, map) {
         }
         
         if (npos.y === 100 && npos.x >= 190 && direction === RIGHT) {
-            npos = {"y": 100, "x": -10};
+            npos = {"y": 100, "x": -10}; //controls where you come out of the warp hole when going right
         }
         
         if (npos.y === 100 && npos.x <= -12 && direction === LEFT) {
-            npos = {"y": 100, "x": 190};
+            npos = {"y": 100, "x": 190}; //controls where you come out of warp hole when going left
         }
         
         position = npos;        
         nextWhole = next(position, direction);
         
         block = map.block(nextWhole);        
+
         
         if ((isMidSquare(position.y) || isMidSquare(position.x)) &&
             block === Pacman.BISCUIT || block === Pacman.PILL) {
@@ -437,7 +438,7 @@ Pacman.User = function (game, map) {
             addScore((block === Pacman.BISCUIT) ? 10 : 50);
             eaten += 1;
             
-            if (eaten === 182) {
+            if (eaten === 182) { //how many pellets you need to eat to advance to next level
                 game.completedLevel();
             }
             
@@ -479,7 +480,7 @@ Pacman.User = function (game, map) {
             return;
         }
 
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "#FFFF00"; //the color of death
         ctx.beginPath();        
         ctx.moveTo(((position.x/10) * size) + half, 
                    ((position.y/10) * size) + half);
@@ -496,7 +497,7 @@ Pacman.User = function (game, map) {
         var s     = map.blockSize, 
             angle = calcAngle(direction, position);
 
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "#FFA500";    //the color of the pacman.  original: #FFFF00
 
         ctx.beginPath();        
 
