@@ -7,8 +7,8 @@
  * fix what happens when a ghost is eaten (should go back to base)
  * do proper ghost mechanics (blinky/wimpy etc)
  */
-
-var NONE        = 4,
+// milk
+var NONE        = 4, //comment to test
     UP          = 3,
     LEFT        = 2,
     DOWN        = 1,
