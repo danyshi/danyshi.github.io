@@ -32,6 +32,7 @@
 			<p>The Macman game was inspired by the classic Pacman arcade game and includes a Macalester College theme. The game was
 			developed by three Macalester College students for their Internet Computing class project. More information about the 
 			developers can be found by clicking the link below:</p>
+			<img id="scotHead" class="hidden" height="28" width="28" src="images\scot.png"/>
 		</div>
 		
 		<span style="color:black; background-color: #F9966B; border:2px solid; padding:2px;">
@@ -92,7 +93,7 @@
 			Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
 		  window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
 		} else { 
-		  el.innerHTML = "Sorry, needs a decent browser<br /><small>" + 
+		  el.innerHTML = "Sorry, needs a different browser<br /><small>" + 
 			"(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
 		}
 		</script>
