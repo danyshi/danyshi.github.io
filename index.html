@@ -1,104 +1,43 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>The Macman Game</title>
-		<script src="js/modernizr-1.5.min.js"></script>	
-		<script language="JavaScript" type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
-		<link href="css/style.css" rel="stylesheet" type="text/css"/>
-		<script src="js/pacman.js"></script>
-		<script src="js/script.js"></script>
+		<title>My Name is Dan Shi</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<link href="images/headshot.jpg" type="image/jpg">
 	</head>
+	<body>
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="resume/Dan_Shi_Resume.pdf">Resume</a></li>
+					<li class="facebook"><a href="https://www.facebook.com/danshi16"><span>Facebook</span></a></li>
+					<li class="linkedin"><a href="https://www.linkedin.com/in/danyshi/"><span>LinkedIn</span></a></li>
+					<li class="github"><a href="https://github.com/danyshi"><span>Github</span></a></li>
+					<li class="macman"><a href="mac_man/index.html"><span>Macman</span></a></li>
+				</ul>
+			</nav>
 
-	<body bgcolor="#15256C">	
-	  <div>
-	  
-	  <!--Left Column-->
-	  
-		<div>
-			<h1>Macman</h1>
-		</div>
-
-		<div>
-			<h2>Instructions</h2>
-			<p>Eat all of the pellets while avoiding the monsters! Grab powerups to eat the ghosts for extra points.</p>
-		</div>
-	  
-		<div>
-			<h2>Controls</h2>
-			<p>Utilize the arrow keys to move the Macman character. The "p" and "n" keys can be used any time throughout the game to pause and start a new game respectively.</p>
-		</div>
-		
-		<div>
-			<h2>About Macman</h2>
-			<p>Macman was inspired by the classic Pacman arcade game and includes a Macalester College theme. The game was
-			developed by three Macalester College students for their Internet Computing class project. </p>
-			
-		</div>
-		
-		<form id="developerpage" action="develop/index.html">
-			<input type="submit" value="Developer Page">
-		</form>
-		
-		<form id="sourcecode" action="https://github.com/teamspacemountain/Macman">
-			<input type="submit" value="Source Code">
-		</form>
-		
-		<!--Center Column-->
-		
-		<div id="pacman"></div>
-		
-		<!--Right Column-->
-		
-		<div>
-			<span id="logo"><img src="images\mac.png"/></span>
-		</div>
-		
-		<div id="table">
-		  <h1 id="title">Macman High Score</h1>
-		  <table id="keywords" cellspacing="0" cellpadding="0">
-			<thead id="headOfTable">
-			  <tr>
-				<th><span id="nameTable">Name</span></th>
-				<th><span id="scoreTable">Score</span></th>
-			  </tr>
-			</thead>
-			<tbody>
-			  <tr>
-				<td class="lalign" id="name1">SAM</td>
-				<td id="score1">9,000</td>
-			  </tr>
-			  <tr>
-				<td class="lalign" id="name2">JARED</td>
-				<td id="score2">8,200</td>
-			  </tr>
-			  <tr>
-				<td class="lalign" id="name3">DAN</td>
-				<td id="score3">7,500</td>
-			  </tr>
-			  <tr>
-				<td class="lalign" id="name4">BOB</td>
-				<td id="score4">6,700</td>
-			  </tr>
-			  <tr>
-				<td class="lalign" id="name5">BILL</td>
-				<td id="score5">5,900</td>
-			  </tr>
-			</tbody>
-		  </table>
-		</div> 	
-
-		<script>
-		var el = document.getElementById("pacman");
-
-		if (Modernizr.canvas && Modernizr.localstorage && 
-			Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
-		  window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
-		} else { 
-		  el.innerHTML = "Sorry, needs a different browser<br /><small>" + 
-			"(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
-		}
-		</script>
-	  </div>	
+			<div class="wrapper wrapper-style1 wrapper-first">
+				<article class="container" id="top">
+					<div class="row">
+						<div class="4u">
+							<span class="me image image-full"><img src="images\headshot.jpg"/></span>
+						</div>
+						<div class="8u">
+							<header>
+								<h1>Hi. My name is <strong>Dan Shi</strong>.</h1>
+							</header>
+							<p>I am currently a senior at <a href="http://www.macalester.edu/">Macalester College</a> located in St. Paul, MN. I am pursing a double major in computer science and physics with a minor in mathematics
+						. I am interested in both hardware and software design.	Outside of the classroom, I spend most of my time competing for the <a href="http://athletics.macalester.edu/index.aspx?tab=golf&path=mgolf">Macalester College Varsity Golf Team</a>. 
+						Currently, I am looking for full time positions for when I graduate in May 2015. 
+						</p>
+						</div>
+					</div>
+				</article>
+			</div>
 	</body>
 </html>
