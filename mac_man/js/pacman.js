@@ -7,7 +7,7 @@
  * fix what happens when a ghost is eaten (should go back to base)
  * do proper ghost mechanics (blinky/wimpy etc)
  */
-// milk
+// testing commit to new branch "sam"
 var NONE        = 4, //comment to test.  trying to push to master
     UP          = 3,
     LEFT        = 2,
@@ -75,12 +75,13 @@ Pacman.Ghost = function (game, map, colour) {
         return moves[Math.floor(Math.random() * 2)];
     };
     
-    function reset() {
+    function reset() {  //happens after each life is lost
         eaten = null;
         eatable = null;
         position = {"x": 90, "y": 80};
         direction = getRandomDirection();
         due = getRandomDirection();
+        //console.log("RESET");
     };
     
     function onWholeSquare(x) {
@@ -312,7 +313,7 @@ Pacman.User = function (game, map) {
 
     function initUser() {
         score = 0;
-        lives = 3;
+        lives = 1;
         newLevel();
     }
     
@@ -369,6 +370,7 @@ Pacman.User = function (game, map) {
     };
 
     function next(pos, dir) {
+
         return {
             "y" : pointToCoord(nextSquare(pos.y, dir)),
             "x" : pointToCoord(nextSquare(pos.x, dir)),
@@ -387,6 +389,7 @@ Pacman.User = function (game, map) {
     };
 
     function move(ctx) {
+
         
         var npos        = null, 
             nextWhole   = null, 
@@ -595,7 +598,34 @@ Pacman.Map = function (size) {
     }
     
     function reset() {       
-        map    = Pacman.MAP.clone();
+        //map    = Pacman.MAP.clone();
+        //map = $.extend(true, {}, Pacman.MAP);
+        //map = Pacman.MAP.slice(0);
+        map = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 4, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 4, 0],
+    [0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    [2, 2, 2, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 2, 2],
+    [0, 0, 0, 0, 1, 0, 1, 0, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+    [2, 2, 2, 2, 1, 1, 1, 0, 3, 3, 3, 0, 1, 1, 1, 2, 2, 2, 2],
+    [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+    [2, 2, 2, 0, 1, 0, 1, 1, 1, 2, 1, 1, 1, 0, 1, 0, 2, 2, 2],
+    [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0],
+    [0, 4, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 4, 0],
+    [0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
         height = map.length;
         width  = (map[0].length);        
     };
@@ -868,6 +898,50 @@ var PACMAN = (function () {
         if (user.getLives() > 0) {
             startLevel();
         }
+        else{
+            console.log("died");
+            console.log(user.theScore());
+            var userName = window.prompt("Enter your name in case you got a high score!","name");
+            console.log(userName);
+            var query = "http://localhost:8080/gameover";
+            var scoreData = { 'name':userName, 'score' : user.theScore() };
+            $.ajax({
+                // the URL for the request
+                url: query,
+                type: "POST",
+                //cache: false,
+                contentType: 'application/json',
+                dataType : "json",
+                data: JSON.stringify({score: scoreData}),
+         
+                // code to run if the request succeeds;
+                // the response is passed to the function
+                success: function( json ) {
+                    console.log(json.name1);
+                    $("#name1").html(json.name1);
+                    $("#name2").html(json.name2);
+                    $("#name3").html(json.name3);
+                    $("#name4").html(json.name4);
+                    $("#name5").html(json.name5);
+
+                    $("#score1").html(json.score1);
+                    $("#score2").html(json.score2);
+                    $("#score3").html(json.score3);
+                    $("#score4").html(json.score4);
+                    $("#score5").html(json.score5);
+                },
+         
+                // code to run if the request fails; the raw request and
+                // status codes are passed to the function
+                error: function( xhr, status, errorThrown ) {
+                    alert( "Sorry, there was a problem!" );
+                    console.log( "Error: " + errorThrown );
+                    console.log( "Status: " + status );
+                    console.dir( xhr );
+                    console.log(xhr.statusText);
+                }
+            });
+        }
     }
 
     function setState(nState) { 
@@ -910,6 +984,7 @@ var PACMAN = (function () {
         ctx.fillStyle = "#FFFF00";
         ctx.font      = "14px BDCartoonShoutRegular";
         ctx.fillText("Score: " + user.theScore(), 30, textBase);
+        //console.log(user.theScore()); //Logging the score
         ctx.fillText("Level: " + level, 260, textBase);
     }
 
@@ -1428,17 +1503,17 @@ Pacman.WALLS = [
      {"line": [10.5, 9.5]}]
 ];
 
-Object.prototype.clone = function () {
-    var i, newObj = (this instanceof Array) ? [] : {};
-    for (i in this) {
-        if (i === 'clone') {
-            continue;
-        }
-        if (this[i] && typeof this[i] === "object") {
-            newObj[i] = this[i].clone();
-        } else {
-            newObj[i] = this[i];
-        }
-    }
-    return newObj;
-};
+// Object.prototype.clone = function () {
+//     var i, newObj = (this instanceof Array) ? [] : {};
+//     for (i in this) {
+//         if (i === 'clone') {
+//             continue;
+//         }
+//         if (this[i] && typeof this[i] === "object") {
+//             newObj[i] = this[i].clone();
+//         } else {
+//             newObj[i] = this[i];
+//         }
+//     }
+//     return newObj;
+// };
