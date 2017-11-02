@@ -1,3 +1,3 @@
 danyshi.github.io
 =================
-My Resume
+Welcome to my website!
